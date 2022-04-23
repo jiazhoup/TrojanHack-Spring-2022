@@ -7,11 +7,11 @@ class Node:
         self.name = name
 
     """
-    child_node: an instance of the Node object
+    childNode: an instance of the Node object
     """
-    def add_child(self, child_node):
-        child_node.parent = self
-        self.children.append(child_node)
+    def addChild(self, childNode):
+        childNode.parent = self
+        self.children.append(childNode)
 
     """
     regex: A string in the form of a regex expression
