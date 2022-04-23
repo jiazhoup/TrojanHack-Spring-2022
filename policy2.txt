@@ -1,0 +1,11 @@
+games
+1:genshin impact
+1:among us
+1:minecraft
+1:fps
+2:csgo
+2:valorant
+pdfs
+1:*.pdf
+images
+1:image.jpg
