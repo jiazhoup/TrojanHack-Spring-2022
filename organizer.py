@@ -3,7 +3,6 @@ from node import Node
 from os import walk
 import re
 
-
 """
 rootNode: The root node of a Node data structure representing a policy
 
@@ -17,10 +16,6 @@ def organizeDesktop(rootNode):
     for child in Node.getChildren(rootNode):
         organize(child, desktopPath, desktopPath)
 
-
-
-
-
   
 """
 node: The node to start recursively searching
@@ -31,7 +26,9 @@ A recrusive function that creates a folder structure on the way down and organiz
 def organize(node, parentDirectory, desktopPath):
     # Create new folder for node object
     newDirectoryPath = os.path.join(parentDirectory, node.getName())
-    os.mkdir(newDirectoryPath)
+
+    if not os.path.exists(newDirectoryPath):
+        os.mkdir(newDirectoryPath)
 
     # Search desktop for files that satisfy each accepting regex
     desktopFilenames = next(walk(desktopPath), (None, None, []))[2]  # [] if no file
@@ -45,7 +42,6 @@ def organize(node, parentDirectory, desktopPath):
     # Recursively organize all children folders
     for child in Node.getChildren(node):
         organize(child, newDirectoryPath, desktopPath)
-
 
 
 """
