@@ -1,28 +1,31 @@
-"""
-idk
-"""
 
 import node
 import sys
+import organizer
 
 fileName = sys.argv[1]
 
 """
- Read policy file, convert to string
+Read policy file, convert to string
 """
+data = None
 try:
     with open(fileName, 'r') as f:
         data = f.read().rstrip()
 except FileNotFoundError:
     print("FILE NOT FOUNND!!!!")
-    pass
+    quit()
 
+"""
+Use parser to create node structure
+"""
+rootNode = parser.Parse(data)
 
 
 """
-parser
+Organize desktop using node structure
 """
-
+organizer.organizeDesktop(rootNode)
 
 
 
