@@ -1,0 +1,8 @@
+games
+    genshin impact
+    among us
+    minecraft
+pdfs
+    *.pdfs
+images
+    image.jpg
