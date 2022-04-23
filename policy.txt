@@ -1,11 +1,11 @@
 games
-    genshin impact
-    among us
-    minecraft
-    fps
-        csgo
-        valorant
+1:genshin impact
+1:among us
+1:minecraft
+1:fps
+2:csgo
+2:valorant
 pdfs
-    *.pdf
+1:*.pdf
 images
-    image.jpg
+1:image.jpg
