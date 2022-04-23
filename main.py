@@ -1,7 +1,7 @@
 
-import node
 import sys
 import organizer
+import node_parser
 
 fileName = sys.argv[1]
 
@@ -19,7 +19,7 @@ except FileNotFoundError:
 """
 Use parser to create node structure
 """
-rootNode = parser.Parse(data)
+rootNode = node_parser.parse(data)
 
 
 """
