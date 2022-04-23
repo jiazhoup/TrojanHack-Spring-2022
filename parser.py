@@ -1,3 +1,5 @@
+from node import Node
+
 def tokenize(file):
     pass
 
@@ -40,15 +42,18 @@ def recurseNodes(tokens, token_index):
             if data[1] == "str":
                 all_sub_files.append(data[0])
             elif data[1] == "dir":
-                
-            
+                all_sub_dir.append(data[0])
         else:
             print("Token parse error: Can't jump 2 directories")
 
         token_index += 1
 
-    if len(one_level_down) == 0:
+    if len(all_sub_dir) + len(all_sub_files) == 0:
         return name, "str"
     else:
         n = Node(name)
+        for nn in all_sub_dir:
+            n.add_child(nn)
+        for fn in all_sub_files:
+            n.add_regex(fn)
         return n, "dir"
