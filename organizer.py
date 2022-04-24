@@ -13,6 +13,8 @@ Reads the Node data structure and organizes the desktop according to it
 """
 def organizeDesktop(rootNode):
     desktopPath = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') 
+    if not os.path.exists(desktopPath):
+        desktopPath = os.path.join(os.path.join(os.environ['USERPROFILE']), 'OneDrive', 'Desktop') 
 
     moveHistory = [] # List of 2-tuples of previous path string and new path string
 
@@ -64,7 +66,7 @@ def organize(node, parentDirectory, desktopPath, moveHistory):
 
     # Recursively organize all children folders
     for child in Node.getChildren(node):
-        organize(child, newDirectoryPath, desktopPath)
+        organize(child, newDirectoryPath, desktopPath, moveHistory)
 
 
 """
@@ -73,7 +75,11 @@ Returns the subset of the list of strings that match the regex
 def getMatchingStrings(listOfStrings, regex):
     print("Scanning for current regex: " + regex)
     
-    regexExpression = re.compile(regex)
+    try:
+        regexExpression = re.compile(regex)
+    except:
+        print("Error. Regex expression " + regex + " is invalid")
+        quit()
 
     out = []
     for string in listOfStrings:

@@ -1,8 +1,5 @@
-games
-    genshin impact
-    among us
-    minecraft
-pdfs
-    *.pdfs
-images
-    image.jpg
+pdfs_hack
+    (.*).pdf
+    games_hack
+        (.*).exe
+
