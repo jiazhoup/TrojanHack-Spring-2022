@@ -61,9 +61,9 @@ def recurseNodes(tokens, token_index):
             print("Token parse error: Can't jump more than 1 directory")
 
     if len(all_sub_dir) + len(all_sub_files) == 0:
-        return name, "str", token_index
+        return name.strip(), "str", token_index
     else:
-        n = Node(name)
+        n = Node(name.strip())
         for nn in all_sub_dir:
             n.addChild(nn)
         for fn in all_sub_files:
