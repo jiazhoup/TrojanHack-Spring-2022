@@ -26,9 +26,12 @@ def organizeDesktop(rootNode):
         output_str += "Moved from: " + move[0] + " to " + move[1] + "\n"
 
     # Saving output.log file to desktop
-    output_file = open(desktopPath, "w")
+    output_path = os.path.join(desktopPath, OUTPUT_LOG_PATH)
+    output_file = open(output_path, "w")
     output_file.write(output_str)
     output_file.close()
+
+    print("Move log outputted to " + output_path)
 
   
 """
