@@ -35,14 +35,7 @@ def organizeDesktop(rootNode):
 
     print("Move log outputted to " + output_path)
 
-    while(True):
-        decision = input("Do you wish to keep the changes (Y/N)")
-        if decision == "Y":
-            break
-        elif decision == "N":
-            for move in moveHistory:
-                os.rename(move[1], move[0])
-            break
+    return moveHistory
 
   
 """
