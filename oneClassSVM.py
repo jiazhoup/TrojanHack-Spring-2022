@@ -42,3 +42,5 @@ OH_X = pd.concat([num_X, OH_cols], axis=1)
 
 model = OneClassSVM()
 model.fit(OH_X)
+
+model.predict
