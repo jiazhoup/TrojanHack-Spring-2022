@@ -71,9 +71,13 @@ def organize(node, parentDirectory, desktopPath, moveHistory):
 Returns the subset of the list of strings that match the regex
 """
 def getMatchingStrings(listOfStrings, regex):
+    print("Scanning for current regex: " + regex)
+    
+    regexExpression = re.compile(regex)
+
     out = []
     for string in listOfStrings:
-        if re.match(regex, string):
+        if re.match(regexExpression, string):
             out.append(string)
     return out
 
