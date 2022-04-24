@@ -1,12 +1,12 @@
 def tokenize(s):
     lines = s.split("\n")
-    file_object = open("policy.txt", "r")
-    lines = []
+    # file_object = open("policy.txt", "r")
+    # lines = []
     parsed = []
-
-
-    for l in file_object:
-        lines.append(l)
+    #
+    #
+    # for l in file_object:
+    #     lines.append(l)
         
 
     for l in lines:
