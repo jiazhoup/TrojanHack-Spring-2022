@@ -63,7 +63,7 @@ Window object
 root = tk.Tk()
 root.geometry("300x400")
 root.iconbitmap('Images/file_archive_folders_icon_193943.ico')
-root.title('Desktop Org')
+root.title('Bro-ganizer')
 
 
 """
@@ -76,8 +76,8 @@ root.configure(background=bg_color)
 """
 Logo?
 """
-logo = Image.open('Images/placeholder.jpg')
-logo.thumbnail((100, 100))  # Rescale image
+logo = Image.open('Images/cool_guy.jpg')
+logo.thumbnail((180, 180))  # Rescale image
 logo = ImageTk.PhotoImage(logo)
 logo_label = tk.Label(root, image=logo)
 tk.Button(root, image=logo).pack(side='top', pady=(100, 0))
@@ -86,7 +86,7 @@ tk.Button(root, image=logo).pack(side='top', pady=(100, 0))
 Text entry
 """
 e = tk.Entry(root, width=25, fg='gray', bd=0, bg='#f2f2f2', font='consolas 8')
-e.pack(pady=(50, 0))
+e.pack(pady=(40, 0))
 e.insert(0, 'Enter policy file name')
 
 
