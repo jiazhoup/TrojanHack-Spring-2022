@@ -14,7 +14,7 @@ try:
     with open(fileName, 'r') as f:
         data = f.read().rstrip()
 except FileNotFoundError:
-    print("FILE NOT FOUNND!!!!")
+    print("Error. File not found.")
     quit()
 
 """
@@ -22,13 +22,10 @@ Use parser to create node structure
 """
 rootNode = node_parser.tokensToNode(tokenizer.tokenize(data));
 
-
 """
 Organize desktop using node structure
 """
 organizer.organizeDesktop(rootNode)
-
-print("WORKED????")
 
 
 
