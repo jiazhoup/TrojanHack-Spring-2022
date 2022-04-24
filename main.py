@@ -1,6 +1,8 @@
 
 import sys
 from unittest.mock import DEFAULT
+import os
+import pickle
 import organizer
 import node_parser
 import tokenizer
@@ -34,9 +36,22 @@ def organize():
     rootNode = node_parser.tokensToNode(tokenizer.tokenize(data))
 
     """
-    Organize desktop using node structure
+    Organize desktop using node structure, return move history
     """
-    organizer.organizeDesktop(rootNode)
+    moveHistory = organizer.organizeDesktop(rootNode)
+
+    with open("moveHistory", "wb") as fp:  # Pickling
+        pickle.dump(moveHistory, fp)
+
+
+def keepChanges():
+    with open('moveHistory', 'rb') as fp:  # Unpickling
+        moveHistory = pickle.load(fp)
+
+    for move in moveHistory:  # Move the files back to the desktop
+        os.rename(move[1], move[0])
+
+    os.remove('moveHistory')
 
 
 
@@ -63,7 +78,7 @@ btn_img = ImageTk.PhotoImage(btn_img)
 btn_label = tk.Label(image=btn_img)
 
 btn = tk.Button(root, image=btn_img, command=organize, bd=0, bg=bg_color)
-btn.pack(pady=(120, 0))
+btn.pack(padx=(0, 0), pady=(120, 0))
 
 
 """
@@ -72,6 +87,18 @@ Text entry
 e = tk.Entry(root, width=25, fg='gray', bd=0, bg='#f2f2f2', font='consolas 8')
 e.pack(pady=(20, 0))
 e.insert(0, 'Enter policy file name')
+
+
+"""
+Revert button. Calls the organize function
+"""
+btn_img2 = Image.open('Images/back.jpg')
+btn_img2.thumbnail((40, 40))   # Rescale image
+btn_img2 = ImageTk.PhotoImage(btn_img2)
+btn_label2 = tk.Label(image=btn_img2)
+
+btn2 = tk.Button(root, image=btn_img2, command=keepChanges, bd=0, bg=bg_color)
+btn2.pack(padx=(100, 0), pady=(10, 0))
 
 
 root.mainloop()
