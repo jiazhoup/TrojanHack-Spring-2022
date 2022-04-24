@@ -44,6 +44,7 @@ def machineLearning(dir, file):
     num_X = X.drop('st_mode', axis=1)
     OH_X = pd.concat([num_X, OH_cols], axis=1)
 
+<<<<<<< HEAD
     model = OneClassSVM()
     model.fit(OH_X)
 
@@ -52,3 +53,9 @@ def machineLearning(dir, file):
 
     pred = model.predict(df_pred)
     return pred
+=======
+model = OneClassSVM()
+model.fit(OH_X)
+
+model.predict
+>>>>>>> 22424c28425799ab77713f0fd004a41eb6b2fc1e
