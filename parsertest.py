@@ -1,13 +1,17 @@
 import node_parser
 import debugUtils
+import tokenizer
 
-test_case_f = open('policy.txt', 'r')
-test_case = []
-for l in test_case_f:
-    test_case.append(l)
+file_object = open("policy.txt", "r")
+s = ""
+for l in file_object:
+    s+=l
+p = tokenizer.tokenize(s)
 #print(test_case)
 
-n = node_parser.tokensToNode(test_case)
+n = node_parser.tokensToNode(p)
 print(n)
 debugUtils.printNode(n, 0)
 
+def tokenize(s):
+    lines = s.split("\n")
