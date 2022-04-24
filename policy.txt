@@ -1,5 +1,0 @@
-pdfs_hack
-    (.*).pdf
-    games_hack
-        (.*).exe
-

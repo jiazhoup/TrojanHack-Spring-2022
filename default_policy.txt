@@ -1,0 +1,18 @@
+pdfs
+    (.*).pdf
+text
+    (.*).pdf
+applications
+    (.*).exe
+    (.*).lnk
+images
+    (.*).png
+    (.*).jpg
+    (.*).jpeg
+music
+    (.*).mp3
+videos
+    (.*).mp4
+homework
+    (.*)_homework.(.*)
+

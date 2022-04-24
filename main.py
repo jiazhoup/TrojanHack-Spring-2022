@@ -1,10 +1,16 @@
 
 import sys
+from unittest.mock import DEFAULT
 import organizer
 import node_parser
 import tokenizer
 
+DEFAULT_POLICY_PATH = "default_policy"
+
 fileName = sys.argv[1]
+
+if fileName == None:
+    fileName = DEFAULT_POLICY_PATH
 
 """
 Read policy file, convert to string
